@@ -18,12 +18,12 @@ def load_images_from_folder(folder):
 ap = argparse.ArgumentParser()
 ap.add_argument("-f", "--folder", required=True,
                 help="path which contanins the list of images you want to rotate")
-ap.add_argument("-d", "--degree", required=True,
-                help="degree of rotation")
+ap.add_argument("-d", "--degree", required=False,
+                help="degree of rotation", type=int, default=360)
 args = vars(ap.parse_args())
 # load the image from disk
 folder = args["folder"]
-degree = int(args["degree"])
+degree = args["degree"]
 images = load_images_from_folder(folder)
 for i in range(len(images)):
     # rotate the image

@@ -335,3 +335,6 @@ pyvenv.cfg
 pip-selfcheck.json
 
 # End of https://www.toptal.com/developers/gitignore/api/python,venv,jetbrains,pycharm,opencv
+
+/images
+/cmd-here.cmd
