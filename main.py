@@ -28,9 +28,14 @@ images = load_images_from_folder(folder)
 for i in range(len(images)):
     # rotate the image
     rotated = imutils.rotate(images[i], degree)
-    try:
-        os.mkdir(folder + "/output")
-    except FileExistsError:
-        print("Directory already exist, writing file...")
-    finally:
+    if i == 0:
+        try:
+            os.mkdir(folder + "/output")
+        except FileExistsError:
+            print("output directory already exist")
+        finally:
+            print("writing file...")
+            cv2.imwrite(folder + "/output/" + str(i) + ".jpg", rotated)
+    else:
+        print("writing file...")
         cv2.imwrite(folder + "/output/" + str(i) + ".jpg", rotated)
